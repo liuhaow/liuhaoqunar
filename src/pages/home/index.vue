@@ -3,7 +3,7 @@
     <header class="header">
       <div class="back iconfont">&#xe624;</div>
       <div class="search"><a href="#" class="prompt">输入城市/景点/游玩主题</a></div>
-      <div class="city">城市</div>
+      <div class="city">{{city}}</div>
     </header>
     <slider :sliders = sliders></slider>  
   </div>
@@ -11,12 +11,16 @@
 <script>
   import axios from 'axios'
   import Slider from './slider'
+  import { mapState } from 'vuex'
   export default {
     name: 'Index-main',
     data () {
       return {
         sliders: []
       }
+    },
+    computed: {
+      ...mapState(['city'])
     },
     components: {
       Slider
